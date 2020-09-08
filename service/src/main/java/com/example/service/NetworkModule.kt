@@ -1,5 +1,6 @@
 package com.example.service
 
+import com.example.service.category.CategoryListRepository
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -10,7 +11,7 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 @Module
-object RetrofitModule {
+object NetworkModule {
 
     private const val TIMEOUT: Long = 20
     private const val BASE_URL = "https://api.chucknorris.io/"
@@ -52,4 +53,11 @@ object RetrofitModule {
             .writeTimeout(TIMEOUT, TimeUnit.SECONDS)
             .build()
     }
+
+    @Provides
+    fun provideChuckApi(retrofit: Retrofit): ChuckNorrisApi =
+        retrofit.create(ChuckNorrisApi::class.java)
+
+    @Provides
+    fun provideCategoryListRepository(api: ChuckNorrisApi) = CategoryListRepository(api)
 }
