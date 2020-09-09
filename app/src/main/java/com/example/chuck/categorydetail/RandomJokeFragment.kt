@@ -9,6 +9,7 @@ import com.example.chuck.R
 import com.example.chuck.di.ViewModelFactory
 import com.google.android.material.snackbar.Snackbar
 import dagger.android.support.AndroidSupportInjection
+import kotlinx.android.synthetic.main.fragment_random_joke.*
 import javax.inject.Inject
 
 class RandomJokeFragment : Fragment(R.layout.fragment_random_joke) {
@@ -26,9 +27,14 @@ class RandomJokeFragment : Fragment(R.layout.fragment_random_joke) {
         super.onViewCreated(view, savedInstanceState)
         val viewModel: RandomJokeViewModel =
             ViewModelProvider(this, viewModelFactory)[RandomJokeViewModel::class.java]
-        viewModel.getJokeDetails("animal") //TODO
+
+        arguments?.let {
+            val category = RandomJokeFragmentArgs.fromBundle(it).category
+            viewModel.getJokeDetails(category)
+        }
         viewModel.jokesResult.observe(viewLifecycleOwner, Observer {
-            //add to screen
+            //add to screenl
+            random_joke_text.text = it.value
         })
         viewModel.errorLiveData.observe(viewLifecycleOwner, Observer { error ->
             this.view?.let { view ->

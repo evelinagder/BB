@@ -3,6 +3,7 @@ package com.example.chuck.categorieslist
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.chuck.R
 import kotlinx.android.synthetic.main.item_category_row.view.*
@@ -30,7 +31,11 @@ class CategoriesAdapter(private val categoriesList: List<String>) :
 
         fun update(category: String) {
             view.category_title.text = category
-            view.setOnClickListener { }
+            view.setOnClickListener {
+                val navigationDirection =
+                    CategoriesListFragmentDirections.actionCategorySelected(category)
+                Navigation.findNavController(it).navigate(navigationDirection)
+            }
         }
     }
 }

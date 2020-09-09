@@ -3,7 +3,9 @@ package com.example.chuck.di
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.chuck.categorieslist.CategoriesFragmentViewModel
+import com.example.chuck.categorydetail.RandomJokeViewModel
 import com.example.service.category.CategoryListRepository
+import com.example.service.joke.JokeDetailRepository
 import dagger.MapKey
 import dagger.Module
 import dagger.Provides
@@ -54,4 +56,10 @@ class ViewModelModule {
     @ViewModelKey(CategoriesFragmentViewModel::class)
     fun provideCategoriesViewModel(categoryListRepository: CategoryListRepository):
             ViewModel = CategoriesFragmentViewModel(categoryListRepository)
+
+    @Provides
+    @IntoMap
+    @ViewModelKey(RandomJokeViewModel::class)
+    fun provideJokeViewModel(jokeRepository: JokeDetailRepository):
+            ViewModel = RandomJokeViewModel(jokeRepository)
 }
