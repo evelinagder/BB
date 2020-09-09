@@ -9,7 +9,7 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.rxkotlin.subscribeBy
 import javax.inject.Inject
 
-class CategoriesFragmentViewModel @Inject constructor( var categoriesRepo: CategoryListRepository) :
+class CategoriesFragmentViewModel @Inject constructor(var categoriesRepo: CategoryListRepository) :
     ViewModel() {
 
     private var mutableCategoriesResult = MutableLiveData<List<String>>()
@@ -21,13 +21,15 @@ class CategoriesFragmentViewModel @Inject constructor( var categoriesRepo: Categ
         disposable = categoriesRepo.getCategories().subscribeBy(
             onError = {
                 Log.d("Error", "Couldn`t load categories")
+                //TODO send info to the view
             },
             onSuccess = {
                 mutableCategoriesResult.value = it
             })
     }
 
-    fun clear() {
+    override fun onCleared() {
+        super.onCleared()
         disposable?.dispose()
     }
 }

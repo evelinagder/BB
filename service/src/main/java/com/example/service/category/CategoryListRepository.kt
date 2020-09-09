@@ -10,6 +10,5 @@ class CategoryListRepository @Inject constructor(val api: ChuckNorrisApi) {
 
     fun getCategories(): Single<List<String>> = api.getCategories()
         .subscribeOn(Schedulers.io())
-        .observeOn(
-        AndroidSchedulers.mainThread())
+        .observeOn(AndroidSchedulers.mainThread())
 }
