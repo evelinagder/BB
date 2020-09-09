@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Chuck</string>
     <string name="category_list_error">Error while loading categories</string>
+    <string name="joke_error">Error while loading joke</string>
 </resources>
