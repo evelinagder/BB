@@ -9,7 +9,7 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.rxkotlin.subscribeBy
 import javax.inject.Inject
 
-class CategoriesFragmentViewModel(@Inject private val categoriesRepo: CategoryListRepository) :
+class CategoriesFragmentViewModel @Inject constructor( var categoriesRepo: CategoryListRepository) :
     ViewModel() {
 
     private var mutableCategoriesResult = MutableLiveData<List<String>>()

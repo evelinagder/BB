@@ -1,17 +1,20 @@
 package com.example.chuck.di
 
 import android.app.Application
-import com.example.service.NetworkModule
+import com.example.chuck.categorieslist.CategoriesListFragment
 import dagger.Component
+import dagger.android.AndroidInjectionModule
+import dagger.android.AndroidInjector
 import javax.inject.Singleton
 
 @Singleton
 @Component(
-    modules = [AppModule::class, ViewModelModule::class, NetworkModule::class,],
+    modules = [AndroidInjectionModule::class,
+        AppModule::class],
 )
 
-interface AppComponent {
+interface AppComponent : AndroidInjector<Application> {
 
-    fun inject(app: Application)
-
+    override fun inject(app: Application)
+    fun inject(f: CategoriesListFragment)
 }
