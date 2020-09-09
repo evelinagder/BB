@@ -5,6 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.Glide
 import com.example.chuck.R
 import com.example.chuck.di.ViewModelFactory
 import com.google.android.material.snackbar.Snackbar
@@ -31,10 +32,15 @@ class RandomJokeFragment : Fragment(R.layout.fragment_random_joke) {
         arguments?.let {
             val category = RandomJokeFragmentArgs.fromBundle(it).category
             viewModel.getJokeDetails(category)
+            get_next_joke_button.setOnClickListener {
+                viewModel.getJokeDetails(category)
+            }
         }
         viewModel.jokesResult.observe(viewLifecycleOwner, Observer {
-            //add to screenl
+
             random_joke_text.text = it.value
+            Glide.with(random_joke_image.context).load(it.icon_url)
+                .into(random_joke_image)
         })
         viewModel.errorLiveData.observe(viewLifecycleOwner, Observer { error ->
             this.view?.let { view ->
