@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Chuck</string>
+    <string name="category_list_error">Error while loading categories</string>
 </resources>

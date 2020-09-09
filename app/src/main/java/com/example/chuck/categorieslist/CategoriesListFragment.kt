@@ -7,9 +7,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.chuck.R
 import com.example.chuck.di.ViewModelFactory
-import dagger.android.AndroidInjector
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.HasAndroidInjector
+import com.google.android.material.snackbar.Snackbar
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_categories_list.*
 import javax.inject.Inject
@@ -34,6 +32,12 @@ class CategoriesListFragment :
         viewModel.categoriesResult.observe(viewLifecycleOwner, Observer {
             val adapter = CategoriesAdapter(it)
             categories_recycler_view.adapter = adapter
+        })
+        viewModel.errorLiveData.observe(viewLifecycleOwner, Observer { error ->
+            this.view?.let { view ->
+                //maybe check different types of error and do something with it
+                Snackbar.make(view, R.string.category_list_error, Snackbar.LENGTH_SHORT).show()
+            }
         })
     }
 }

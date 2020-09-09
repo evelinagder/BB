@@ -14,14 +14,18 @@ class CategoriesFragmentViewModel @Inject constructor(var categoriesRepo: Catego
 
     private var mutableCategoriesResult = MutableLiveData<List<String>>()
     val categoriesResult: LiveData<List<String>> = mutableCategoriesResult
+
+    private var mutableErrorLiveData = MutableLiveData<Throwable>()
+    val errorLiveData: LiveData<Throwable> = mutableErrorLiveData
+
     private var disposable: Disposable? = null
 
 
     fun getCategories() {
         disposable = categoriesRepo.getCategories().subscribeBy(
             onError = {
-                Log.d("Error", "Couldn`t load categories")
-                //TODO send info to the view
+                Log.d("Error", "Error while loading categories")
+                mutableErrorLiveData.value = it
             },
             onSuccess = {
                 mutableCategoriesResult.value = it
