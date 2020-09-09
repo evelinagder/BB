@@ -19,10 +19,6 @@ class CategoriesListFragment :
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
-//    @Inject
-//    lateinit var androidInjector: DispatchingAndroidInjector<Any>
-//
-//    override fun androidInjector(): AndroidInjector<Any> = androidInjector
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
