@@ -2,7 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white">
+    android:layout_margin="10dp"
+    android:background="@drawable/text_field_background">
 
     <TextView
         android:id="@+id/category_title"
@@ -13,12 +14,5 @@
         android:textColor="@color/text_color"
         android:textSize="19sp"
         android:textStyle="bold" />
-
-    <View
-        android:id="@+id/category_row_divider"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/colorPrimary"/>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
