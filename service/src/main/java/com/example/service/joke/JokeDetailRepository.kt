@@ -11,3 +11,5 @@ class JokeDetailRepository @Inject constructor(val api: ChuckNorrisApi) {
         .subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())
 }
+
+
