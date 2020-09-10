@@ -5,7 +5,6 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
 import com.example.chuck.R
 import com.example.chuck.di.ViewModelFactory
