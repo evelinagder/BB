@@ -9,10 +9,10 @@
         android:id="@+id/category_title"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="10dp"
+        android:padding="@dimen/category_row_padding"
         android:textAlignment="center"
         android:textColor="@color/text_color"
-        android:textSize="19sp"
+        android:textSize="@dimen/large_text_size"
         android:textStyle="bold" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
