@@ -3,4 +3,5 @@
     <string name="category_list_error">Error while loading categories</string>
     <string name="joke_error">Error while loading joke</string>
     <string name="next_joke_button_label">get next joke</string>
+    <string name="category_list_label">Categories</string>
 </resources>
