@@ -18,8 +18,7 @@ class CategoriesFragmentViewModel @Inject constructor(var categoriesRepo: Catego
     private var mutableErrorLiveData = MutableLiveData<Throwable>()
     val errorLiveData: LiveData<Throwable> = mutableErrorLiveData
 
-    private var disposable: Disposable? = null
-
+    private lateinit var disposable: Disposable
 
     fun getCategories() {
         disposable = categoriesRepo.getCategories().subscribeBy(
@@ -34,6 +33,6 @@ class CategoriesFragmentViewModel @Inject constructor(var categoriesRepo: Catego
 
     override fun onCleared() {
         super.onCleared()
-        disposable?.dispose()
+        disposable.dispose()
     }
 }

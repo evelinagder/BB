@@ -25,14 +25,13 @@ class RandomJokeFragment : BaseFragment(R.layout.fragment_random_joke) {
             }
         }
         viewModel.jokesResult.observe(viewLifecycleOwner, Observer {
-
-            random_joke_text.text = it.value
-            Glide.with(random_joke_image.context).load(it.icon_url)
+            random_joke_text.text = it?.value
+            Glide.with(random_joke_image.context).load(it?.icon_url)
                 .into(random_joke_image)
         })
-        viewModel.errorLiveData.observe(viewLifecycleOwner, Observer { error ->
+        viewModel.errorLiveData.observe(viewLifecycleOwner, Observer {
             this.view?.let { view ->
-                //maybe check different types of error and do something with it
+                // check different types of error and do something with it
                 Snackbar.make(view, R.string.joke_error, Snackbar.LENGTH_SHORT).show()
             }
         })

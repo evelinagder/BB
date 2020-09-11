@@ -12,8 +12,8 @@ import javax.inject.Inject
 
 class RandomJokeViewModel @Inject constructor(var jokeRepo: JokeDetailRepository) :
     ViewModel() {
-    private var mutableJokesResult = MutableLiveData<Joke>()
-    val jokesResult: LiveData<Joke> = mutableJokesResult
+    private var mutableJokesResult = MutableLiveData<Joke?>()
+    val jokesResult: LiveData<Joke?> = mutableJokesResult
 
     private var mutableErrorLiveData = MutableLiveData<Throwable>()
     val errorLiveData: LiveData<Throwable> = mutableErrorLiveData

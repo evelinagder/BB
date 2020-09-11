@@ -17,12 +17,11 @@ class CategoriesListFragment : BaseFragment(R.layout.fragment_categories_list) {
             ViewModelProvider(this, viewModelFactory)[CategoriesFragmentViewModel::class.java]
         viewModel.getCategories()
         viewModel.categoriesResult.observe(viewLifecycleOwner, Observer {
-            val adapter = CategoriesAdapter(it)
-            categories_recycler_view.adapter = adapter
+            categories_recycler_view.adapter = CategoriesAdapter(it)
         })
-        viewModel.errorLiveData.observe(viewLifecycleOwner, Observer { error ->
+        viewModel.errorLiveData.observe(viewLifecycleOwner, Observer {
             this.view?.let { view ->
-                //maybe check different types of error and do something with it
+                //future improvement-  check different types of error and do something with it
                 Snackbar.make(view, R.string.category_list_error, Snackbar.LENGTH_SHORT).show()
             }
         })

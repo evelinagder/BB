@@ -21,7 +21,6 @@ class CategoriesAdapter(private val categoriesList: List<String>) :
     }
 
     override fun onBindViewHolder(holder: CategoriesViewHolder, position: Int) {
-
         holder.update(categoriesList[position])
     }
 
