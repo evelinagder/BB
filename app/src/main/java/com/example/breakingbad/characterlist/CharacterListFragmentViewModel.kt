@@ -13,22 +13,22 @@ import javax.inject.Inject
 class CharacterListFragmentViewModel @Inject constructor(var charactersRepo: CharacterListRepository) :
     ViewModel() {
 
-    private var mutableCategoriesResult = MutableLiveData<List<Character>>()
-    val categoriesResult: LiveData<List<Character>> = mutableCategoriesResult
+    private var mutablecharactersResult = MutableLiveData<List<Character>>()
+    val charactersResult: LiveData<List<Character>> = mutablecharactersResult
 
     private var mutableErrorLiveData = MutableLiveData<Throwable>()
     val errorLiveData: LiveData<Throwable> = mutableErrorLiveData
 
     private lateinit var disposable: Disposable
 
-    fun getCategories() {
+    fun getAllCharacters() {
         disposable = charactersRepo.getCharacterList().subscribeBy(
             onError = {
                 Log.d("Error", "Error while loading characters")
                 mutableErrorLiveData.value = it
             },
             onSuccess = {
-                mutableCategoriesResult.value = it
+                mutablecharactersResult.value = it
             })
     }
 

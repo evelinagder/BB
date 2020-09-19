@@ -7,8 +7,28 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="@dimen/character_detailsPadding">
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:titleTextColor="@android:color/white" />
+        </com.google.android.material.appbar.AppBarLayout>
+
 
         <TextView
             android:id="@+id/details_character_name"
@@ -16,11 +36,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/character_text_margin"
             android:layout_marginTop="@dimen/character_text_margin"
+            android:paddingEnd="@dimen/character_detailsPadding"
             android:textColor="@color/text_color"
             android:textSize="@dimen/medium_text_size"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/app_bar" />
 
         <TextView
             android:id="@+id/details_character_occupation"
@@ -28,6 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/character_text_margin"
             android:layout_marginTop="@dimen/character_text_margin"
+            android:paddingEnd="@dimen/character_detailsPadding"
             android:textColor="@color/text_color"
             android:textSize="@dimen/medium_text_size"
             android:textStyle="bold"
@@ -40,6 +62,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/character_text_margin"
             android:layout_marginTop="@dimen/character_text_margin"
+            android:paddingEnd="@dimen/character_detailsPadding"
             android:textAlignment="center"
             android:textColor="@color/text_color"
             android:textSize="@dimen/medium_text_size"
@@ -53,6 +76,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/character_text_margin"
             android:layout_marginTop="@dimen/character_text_margin"
+            android:paddingEnd="@dimen/character_detailsPadding"
             android:textAlignment="center"
             android:textColor="@color/text_color"
             android:textSize="@dimen/medium_text_size"
@@ -66,6 +90,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/character_text_margin"
             android:layout_marginTop="@dimen/character_text_margin"
+            android:paddingEnd="@dimen/character_detailsPadding"
             android:textColor="@color/text_color"
             android:textSize="@dimen/medium_text_size"
             android:textStyle="bold"

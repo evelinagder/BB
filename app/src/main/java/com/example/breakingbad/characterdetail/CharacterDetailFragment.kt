@@ -2,6 +2,10 @@ package com.example.breakingbad.characterdetail
 
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.widget.Toolbar
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupWithNavController
 import com.bumptech.glide.Glide
 import com.example.breakingbad.BaseFragment
 import com.example.breakingbad.R
@@ -11,6 +15,14 @@ class CharacterDetailFragment : BaseFragment(R.layout.fragment_details) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val navController = findNavController()
+        val appBarConfiguration = AppBarConfiguration(navController.graph)
+
+        val toolbar = view.findViewById<Toolbar>(R.id.toolbar)
+        toolbar.setupWithNavController(
+            navController,
+            appBarConfiguration
+        )
         arguments?.let {
             val selectedCharacter = CharacterDetailFragmentArgs.fromBundle(it).character
             details_character_name.text = String.format(

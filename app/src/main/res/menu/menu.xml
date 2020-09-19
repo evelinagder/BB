@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_filter_one"
+        android:icon="@drawable/ic_filter"
+        android:title="In season 1" />
+    <item
+        android:id="@+id/menu_filter_two"
+        android:icon="@drawable/ic_filter"
+        android:title="In season 2" />
+    <item
+        android:id="@+id/menu_filter_three"
+        android:icon="@drawable/ic_filter"
+        android:title="In season 3" />
+    <item
+        android:id="@+id/menu_filter_four"
+        android:icon="@drawable/ic_filter"
+        android:title="In season 4" />
+    <item
+        android:id="@+id/menu_filter_five"
+        android:icon="@drawable/ic_filter"
+        android:title="In season 5" />
+</menu>

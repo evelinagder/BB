@@ -1,5 +1,6 @@
 package com.example.breakingbad.characterlist
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +11,7 @@ import com.example.breakingbad.R
 import com.example.service.model.Character
 import kotlinx.android.synthetic.main.item_character_row.view.*
 
-class CharacterListAdapter(private val categoriesList: List<Character>) :
+class CharacterListAdapter(private var categoriesList: List<Character>) :
     RecyclerView.Adapter<CharacterListAdapter.CharacterViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -28,6 +29,13 @@ class CharacterListAdapter(private val categoriesList: List<Character>) :
 
     override fun getItemCount(): Int = categoriesList.size
 
+    fun filterBySeason(seasonNumber: Int) {
+        val newList = categoriesList.filter { it.appearance.contains(seasonNumber) }
+        categoriesList = newList
+        notifyDataSetChanged()
+    }
+
+
     class CharacterViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
 
         fun update(character: Character) {
@@ -36,7 +44,7 @@ class CharacterListAdapter(private val categoriesList: List<Character>) :
                 .into(view.character_image)
             view.setOnClickListener {
                 val navigationDirection =
-                   CharacterListFragmentDirections.actionCharacterSelected(character)
+                    CharacterListFragmentDirections.actionCharacterSelected(character)
                 Navigation.findNavController(it).navigate(navigationDirection)
             }
         }
