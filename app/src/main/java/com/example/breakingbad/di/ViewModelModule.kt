@@ -3,7 +3,6 @@ package com.example.breakingbad.di
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.breakingbad.characterlist.CharacterListFragmentViewModel
-import com.example.breakingbad.characterdetail.RandomJokeViewModel
 import com.example.service.character.CharacterListRepository
 import dagger.MapKey
 import dagger.Module
@@ -55,10 +54,4 @@ class ViewModelModule {
     @ViewModelKey(CharacterListFragmentViewModel::class)
     fun provideCharactersListViewModel(categoryListRepository: CharacterListRepository):
             ViewModel = CharacterListFragmentViewModel(categoryListRepository)
-
-    @Provides
-    @IntoMap
-    @ViewModelKey(RandomJokeViewModel::class)
-    fun provideJokeViewModel():
-            ViewModel = RandomJokeViewModel()
 }

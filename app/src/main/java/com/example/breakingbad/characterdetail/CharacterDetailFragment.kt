@@ -2,7 +2,6 @@ package com.example.breakingbad.characterdetail
 
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.breakingbad.BaseFragment
 import com.example.breakingbad.R
@@ -12,9 +11,6 @@ class CharacterDetailFragment : BaseFragment(R.layout.fragment_details) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val viewModel: RandomJokeViewModel =
-            ViewModelProvider(this, viewModelFactory)[RandomJokeViewModel::class.java]
-
         arguments?.let {
             val selectedCharacter = CharacterDetailFragmentArgs.fromBundle(it).character
             details_character_name.text = String.format(
@@ -35,7 +31,7 @@ class CharacterDetailFragment : BaseFragment(R.layout.fragment_details) {
             )
             details_character_season_appearance.text = String.format(
                 getString(R.string.character_season_appearance_label),
-                selectedCharacter.occupation.joinToString(separator = " . ")
+                selectedCharacter.appearance.joinToString(separator = " . ")
             )
             Glide.with(details_character_image.context).load(selectedCharacter.img)
                 .into(details_character_image)
