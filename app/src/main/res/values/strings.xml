@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">Chuck</string>
-    <string name="category_list_error">Error while loading categories</string>
+    <string name="app_name">Breaking Bad</string>
+    <string name="category_list_error">Error while loading character</string>
     <string name="joke_error">Error while loading joke</string>
     <string name="next_joke_button_label">get next joke</string>
-    <string name="category_list_label">Categories</string>
+    <string name="category_list_label">Characters</string>
 </resources>

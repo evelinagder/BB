@@ -1,4 +1,4 @@
-package com.example.chuck
+package com.example.breakingbad
 
 import org.junit.Test
 

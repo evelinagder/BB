@@ -1,4 +1,4 @@
-package com.example.chuck
+package com.example.breakingbad
 
 import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
@@ -21,5 +21,4 @@ class MainActivity : FragmentActivity() {
             .setupWithNavController(navController, appBarConfiguration)
 
     }
-
 }

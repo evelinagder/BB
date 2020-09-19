@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/categoriesListFragment"
-        android:name="com.example.chuck.categorieslist.CategoriesListFragment"
+        android:name="com.example.breakingbad.characterlist.CharacterListFragment"
         android:label="@string/category_list_label">
         <action
             android:id="@+id/action_category_selected"
@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/randomJokeFragment"
-        android:name="com.example.chuck.categorydetail.RandomJokeFragment"
+        android:name="com.example.breakingbad.characterdetail.RandomJokeFragment"
         android:label="{category}">
         <argument
             android:name="category"

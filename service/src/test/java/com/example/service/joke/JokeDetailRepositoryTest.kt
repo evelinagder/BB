@@ -1,7 +1,7 @@
 package com.example.service.joke
 
-import com.example.service.ChuckNorrisApi
-import com.example.service.model.Joke
+import com.example.service.BreakingBadApi
+import com.example.service.model.Character
 import com.google.common.truth.Truth.assertThat
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
@@ -20,7 +20,7 @@ import java.util.concurrent.Executor
 
 class JokeDetailRepositoryTest {
 
-    val api: ChuckNorrisApi = mock()
+    val api: BreakingBadApi = mock()
 
     companion object {
         @ClassRule
@@ -31,7 +31,7 @@ class JokeDetailRepositoryTest {
     @Test
     fun `WHEN get joke is called to the repo a joke is returned`() {
         // GIVEN
-        val joke = Joke("url", "Funny joke")
+        val joke = Character("url", "Funny joke")
         val category = "animal"
         whenever(api.getJokeForCategory(category)).thenReturn(Single.just(joke))
         val repository = JokeDetailRepository(api)

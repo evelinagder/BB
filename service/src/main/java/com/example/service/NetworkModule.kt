@@ -1,6 +1,6 @@
 package com.example.service
 
-import com.example.service.category.CategoryListRepository
+import com.example.service.character.CharacterListRepository
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import dagger.Module
 import dagger.Provides
@@ -15,7 +15,7 @@ import javax.inject.Singleton
 object NetworkModule {
 
     private const val TIMEOUT: Long = 20
-    private const val BASE_URL = "https://api.chucknorris.io/"
+    private const val BASE_URL = "https://breakingbadapi.com/api/"
 
     /**
      * Provides the retrofit instance.
@@ -57,9 +57,9 @@ object NetworkModule {
     }
 
     @Provides
-    fun provideChuckApi(retrofit: Retrofit): ChuckNorrisApi =
-        retrofit.create(ChuckNorrisApi::class.java)
+    fun provideBreakingBadApi(retrofit: Retrofit): BreakingBadApi =
+        retrofit.create(BreakingBadApi::class.java)
 
     @Provides
-    fun provideCategoryListRepository(api: ChuckNorrisApi) = CategoryListRepository(api)
+    fun provideCharacterListRepository(api: BreakingBadApi) = CharacterListRepository(api)
 }

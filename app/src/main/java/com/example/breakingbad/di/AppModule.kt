@@ -1,4 +1,4 @@
-package com.example.chuck.di
+package com.example.breakingbad.di
 
 import android.app.Application
 import dagger.Module

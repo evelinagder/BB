@@ -1,4 +1,4 @@
-package com.example.chuck
+package com.example.breakingbad
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

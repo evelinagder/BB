@@ -1,8 +1,7 @@
-package com.example.chuck.di
+package com.example.breakingbad.di
 
-import android.app.Application
-import com.example.chuck.ChuckApplication
-import com.example.chuck.categorieslist.CategoriesListFragment
+import com.example.breakingbad.BreakingBadApplication
+import com.example.breakingbad.characterlist.CharacterListFragment
 import com.example.service.NetworkModule
 import dagger.Component
 import dagger.android.AndroidInjectionModule
@@ -18,8 +17,8 @@ import javax.inject.Singleton
         FragmentModule::class],
 )
 
-interface AppComponent : AndroidInjector<ChuckApplication> {
+interface AppComponent : AndroidInjector<BreakingBadApplication> {
 
-    override fun inject(app: ChuckApplication)
-    fun inject(f: CategoriesListFragment)
+    override fun inject(app: BreakingBadApplication)
+    fun inject(f: CharacterListFragment)
 }

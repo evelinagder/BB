@@ -1,19 +1,20 @@
-package com.example.chuck.categorieslist
+package com.example.breakingbad.characterlist
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.service.category.CategoryListRepository
+import com.example.service.character.CharacterListRepository
+import com.example.service.model.Character
 import io.reactivex.disposables.Disposable
 import io.reactivex.rxkotlin.subscribeBy
 import javax.inject.Inject
 
-class CategoriesFragmentViewModel @Inject constructor(var categoriesRepo: CategoryListRepository) :
+class CharacterListFragmentViewModel @Inject constructor(var charactersRepo: CharacterListRepository) :
     ViewModel() {
 
-    private var mutableCategoriesResult = MutableLiveData<List<String>>()
-    val categoriesResult: LiveData<List<String>> = mutableCategoriesResult
+    private var mutableCategoriesResult = MutableLiveData<List<Character>>()
+    val categoriesResult: LiveData<List<Character>> = mutableCategoriesResult
 
     private var mutableErrorLiveData = MutableLiveData<Throwable>()
     val errorLiveData: LiveData<Throwable> = mutableErrorLiveData
@@ -21,9 +22,9 @@ class CategoriesFragmentViewModel @Inject constructor(var categoriesRepo: Catego
     private lateinit var disposable: Disposable
 
     fun getCategories() {
-        disposable = categoriesRepo.getCategories().subscribeBy(
+        disposable = charactersRepo.getCharacterList().subscribeBy(
             onError = {
-                Log.d("Error", "Error while loading categories")
+                Log.d("Error", "Error while loading characters")
                 mutableErrorLiveData.value = it
             },
             onSuccess = {

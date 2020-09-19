@@ -1,8 +1,8 @@
-package com.example.chuck
+package com.example.breakingbad
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.example.chuck.di.ViewModelFactory
+import com.example.breakingbad.di.ViewModelFactory
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
