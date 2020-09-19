@@ -76,7 +76,7 @@
             android:id="@+id/details_character_image"
             android:layout_width="@dimen/image_size"
             android:layout_height="@dimen/image_size"
-            android:layout_marginTop="@dimen/image_margin_top"
+            android:layout_marginTop="@dimen/item_margin_top"
             android:scaleType="fitCenter"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
