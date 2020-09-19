@@ -1,43 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/character_detailsPadding">
 
-    <ImageView
-        android:id="@+id/random_joke_image"
-        android:layout_width="@dimen/image_size"
-        android:layout_height="@dimen/image_size"
-        android:layout_marginTop="@dimen/image_margin_top"
-        android:scaleType="fitCenter"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/details_character_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/character_text_margin"
+            android:layout_marginTop="@dimen/character_text_margin"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/medium_text_size"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/random_joke_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/text_color"
-        android:textStyle="bold"
-        android:textSize="@dimen/medium_text_size"
-        android:layout_margin="@dimen/joke_text_margin"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/random_joke_image" />
+        <TextView
+            android:id="@+id/details_character_occupation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/character_text_margin"
+            android:layout_marginTop="@dimen/character_text_margin"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/medium_text_size"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/details_character_name" />
 
-    <Button
-        android:id="@+id/get_next_joke_button"
-        android:layout_width="@dimen/button_height"
-        android:layout_height="@dimen/button_width"
-        android:layout_marginBottom="@dimen/button_margin_bottom"
-        android:background="@drawable/button_background"
-        android:text="@string/next_joke_button_label"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/details_character_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/character_text_margin"
+            android:layout_marginTop="@dimen/character_text_margin"
+            android:textAlignment="center"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/medium_text_size"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/details_character_occupation" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/details_character_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/character_text_margin"
+            android:layout_marginTop="@dimen/character_text_margin"
+            android:textAlignment="center"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/medium_text_size"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/details_character_status" />
+
+        <TextView
+            android:id="@+id/details_character_season_appearance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/character_text_margin"
+            android:layout_marginTop="@dimen/character_text_margin"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/medium_text_size"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/details_character_nickname" />
+
+        <ImageView
+            android:id="@+id/details_character_image"
+            android:layout_width="@dimen/image_size"
+            android:layout_height="@dimen/image_size"
+            android:layout_marginTop="@dimen/image_margin_top"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/details_character_season_appearance" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

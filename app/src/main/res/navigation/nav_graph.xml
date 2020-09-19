@@ -7,9 +7,9 @@
     <fragment
         android:id="@+id/categoriesListFragment"
         android:name="com.example.breakingbad.characterlist.CharacterListFragment"
-        android:label="@string/category_list_label">
+        android:label="@string/characters_list_label">
         <action
-            android:id="@+id/action_category_selected"
+            android:id="@+id/action_character_selected"
             app:destination="@id/randomJokeFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
@@ -18,10 +18,10 @@
     </fragment>
     <fragment
         android:id="@+id/randomJokeFragment"
-        android:name="com.example.breakingbad.characterdetail.RandomJokeFragment"
-        android:label="{category}">
+        android:name="com.example.breakingbad.characterdetail.CharacterDetailFragment"
+        android:label="">
         <argument
-            android:name="category"
-            app:argType="string" />
+            android:name="character"
+            app:argType="com.example.service.model.Character" />
     </fragment>
 </navigation>

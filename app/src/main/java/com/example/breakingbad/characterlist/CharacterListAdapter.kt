@@ -35,9 +35,9 @@ class CharacterListAdapter(private val categoriesList: List<Character>) :
             Glide.with(view.character_image.context).load(character.img)
                 .into(view.character_image)
             view.setOnClickListener {
-//                val navigationDirection =
-//                    CategoriesListFragmentDirections.actionCategorySelected(category)
-//                Navigation.findNavController(it).navigate(navigationDirection)
+                val navigationDirection =
+                   CharacterListFragmentDirections.actionCharacterSelected(character)
+                Navigation.findNavController(it).navigate(navigationDirection)
             }
         }
     }

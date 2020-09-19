@@ -1,7 +1,7 @@
 package com.example.breakingbad.di
 
 import com.example.breakingbad.characterlist.CharacterListFragment
-import com.example.breakingbad.characterdetail.RandomJokeFragment
+import com.example.breakingbad.characterdetail.CharacterDetailFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -12,5 +12,5 @@ abstract class FragmentModule {
     abstract fun provideCategoriesListFragment(): CharacterListFragment
 
     @ContributesAndroidInjector
-    abstract fun provideJokeFragment(): RandomJokeFragment
+    abstract fun provideJokeFragment(): CharacterDetailFragment
 }
