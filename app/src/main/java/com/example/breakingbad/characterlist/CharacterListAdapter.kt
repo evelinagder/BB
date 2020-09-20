@@ -1,6 +1,5 @@
 package com.example.breakingbad.characterlist
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +12,9 @@ import kotlinx.android.synthetic.main.item_character_row.view.*
 
 class CharacterListAdapter(private var categoriesList: List<Character>) :
     RecyclerView.Adapter<CharacterListAdapter.CharacterViewHolder>() {
+
+    private val originalList = categoriesList
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -30,14 +32,19 @@ class CharacterListAdapter(private var categoriesList: List<Character>) :
     override fun getItemCount(): Int = categoriesList.size
 
     fun filterBySeason(seasonNumber: Int) {
+        categoriesList = originalList
         val newList = categoriesList.filter { it.appearance.contains(seasonNumber) }
         categoriesList = newList
         notifyDataSetChanged()
     }
 
     fun filterByName(name: String) {
-        val newList = categoriesList.filter { it.name == name}
-        categoriesList = newList
+        categoriesList = originalList
+        if (name.isNotEmpty()) {
+            val newList =
+                categoriesList.filter { it.name?.contains(name, ignoreCase = true) == true }
+            categoriesList = newList
+        }
         notifyDataSetChanged()
     }
 

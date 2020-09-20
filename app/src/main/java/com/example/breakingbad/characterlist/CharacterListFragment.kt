@@ -2,6 +2,7 @@ package com.example.breakingbad.characterlist
 
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -23,10 +24,6 @@ class CharacterListFragment : BaseFragment(R.layout.fragment_characters_list) {
         val appBarConfiguration = AppBarConfiguration(navController.graph)
 
         val toolbar = view.findViewById<Toolbar>(R.id.toolbar)
-        toolbar.setupWithNavController(
-            navController,
-            appBarConfiguration
-        )
         toolbar.setOnMenuItemClickListener { menuItem ->
             val filterSeasonValue = when (menuItem.itemId) {
                 R.id.menu_filter_one -> 1
@@ -45,6 +42,20 @@ class CharacterListFragment : BaseFragment(R.layout.fragment_characters_list) {
             navController,
             appBarConfiguration
         )
+        search_view.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                (characters_recycler_view.adapter as CharacterListAdapter).filterByName(
+                    newText ?: ""
+                )
+                return true
+            }
+
+
+        });
         val viewModel: CharacterListFragmentViewModel =
             ViewModelProvider(this, viewModelFactory)[CharacterListFragmentViewModel::class.java]
         viewModel.getAllCharacters()
