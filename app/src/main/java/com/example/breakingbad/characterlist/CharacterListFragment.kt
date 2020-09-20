@@ -48,7 +48,7 @@ class CharacterListFragment : BaseFragment(R.layout.fragment_characters_list) {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                (characters_recycler_view.adapter as CharacterListAdapter).filterByName(
+                (characters_recycler_view.adapter as? CharacterListAdapter)?.filterByName(
                     newText ?: ""
                 )
                 return true
