@@ -7,4 +7,10 @@
     <string name="character_status_label">Status:  %s</string>
     <string name="character_nickname_label">Nickname:  %s</string>
     <string name="character_season_appearance_label">Season appearance:  %s</string>
+    <string name="search_title">Search</string>
+    <string name="season_1">In season 1</string>
+    <string name="season_2">In season 2</string>
+    <string name="season_3">In season 3</string>
+    <string name="season_4">In season 4</string>
+    <string name="season_5">In season 5</string>
 </resources>

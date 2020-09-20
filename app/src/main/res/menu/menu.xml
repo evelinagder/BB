@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/menu_filter_one"
         android:icon="@drawable/ic_filter"
-        android:title="In season 1" />
+        android:title="@string/season_1" />
     <item
         android:id="@+id/menu_filter_two"
         android:icon="@drawable/ic_filter"
-        android:title="In season 2" />
+        android:title="@string/season_2" />
     <item
         android:id="@+id/menu_filter_three"
         android:icon="@drawable/ic_filter"
-        android:title="In season 3" />
+        android:title="@string/season_3" />
     <item
         android:id="@+id/menu_filter_four"
         android:icon="@drawable/ic_filter"
-        android:title="In season 4" />
+        android:title="@string/season_4" />
     <item
         android:id="@+id/menu_filter_five"
         android:icon="@drawable/ic_filter"
-        android:title="In season 5" />
+        android:title="@string/season_5" />
+
+    <item
+        android:id="@+id/search"
+        android:icon="@drawable/ic_search"
+        android:title="@string/search_title"
+        app:actionViewClass="android.widget.SearchView"
+        app:showAsAction="collapseActionView|ifRoom" />
 </menu>

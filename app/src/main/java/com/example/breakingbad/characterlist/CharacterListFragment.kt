@@ -1,7 +1,6 @@
 package com.example.breakingbad.characterlist
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer

@@ -35,6 +35,11 @@ class CharacterListAdapter(private var categoriesList: List<Character>) :
         notifyDataSetChanged()
     }
 
+    fun filterByName(name: String) {
+        val newList = categoriesList.filter { it.name == name}
+        categoriesList = newList
+        notifyDataSetChanged()
+    }
 
     class CharacterViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
 
