@@ -1,6 +1,7 @@
-package com.example.service.joke
+package com.example.service.characters
 
 import com.example.service.BreakingBadApi
+import com.example.service.character.CharacterListRepository
 import com.example.service.model.Character
 import com.google.common.truth.Truth.assertThat
 import com.nhaarman.mockitokotlin2.mock
@@ -29,19 +30,29 @@ class JokeDetailRepositoryTest {
     }
 
     @Test
-    fun `WHEN get joke is called to the repo a joke is returned`() {
+    fun `WHEN get characterList is called to the repo a list is returned`() {
         // GIVEN
-        val joke = Character("url", "Funny joke")
-        val category = "animal"
-        whenever(api.getJokeForCategory(category)).thenReturn(Single.just(joke))
-        val repository = JokeDetailRepository(api)
+        val list = listOf(
+            Character(
+                name = "Walter White",
+                nickname = "Heisenberg",
+                appearance = listOf(1, 2, 3, 4, 5),
+                occupation = listOf("Meth king pin", "teacher"),
+                status = "presumed dead",
+                img = "no image"
+            )
+        )
+        whenever(api.getAllCharacters()).thenReturn(Single.just(list))
+        val repository = CharacterListRepository(api)
 
         // WHEN
-        val result = repository.getJokeDetails(category)
-       val jokeRes = result.blockingGet()
+        val result = repository.getCharacterList()
+        val listRes = result.blockingGet()
 
         // THEN
-       assertThat(jokeRes).isEqualTo(joke);
+        assertThat(listRes).isEqualTo(list);
+        assertThat(listRes.size).isEqualTo(1)
+        assertThat(listRes.first().name).isEqualTo("Walter White")
     }
 }
 
